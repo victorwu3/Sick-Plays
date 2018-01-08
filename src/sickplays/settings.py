@@ -55,7 +55,7 @@ ROOT_URLCONF = 'sickplays.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,6 +84,8 @@ DATABASES = {
         'PORT': '',
     }
 }
+
+LOGIN_REDIRECT_URL = '/'
 
 
 # Password validation
