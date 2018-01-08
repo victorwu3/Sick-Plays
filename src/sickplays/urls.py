@@ -20,6 +20,7 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^login/$', auth_views.login),
+    url(r'^login/$', auth_views.login,  kwargs={'redirect_authenticated_user': True}),
+    url(r'^logout/$', auth_views.logout, {'next_page': '/'}),
     url(r'^', include('sports.urls')),
 ]
