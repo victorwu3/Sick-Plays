@@ -17,16 +17,12 @@ def index(request):
                      user_agent='sickplays')
 
 
-    # print(reddit.auth.scopes())
     posts = []
     for submission in reddit.subreddit('nba').hot():
-        # pdb.set_trace()
         if submission.domain == 'streamable.com':
-            # pdb.set_trace()
             if submission.media is not None:
-                pdb.set_trace()
-                posts.append(submission.media['oembed']['html'])
-    # pdb.set_trace()
+                # pdb.set_trace()
+                posts.append(submission.url[:23] + 't/' + submission.url[23:])
 
 
     return render(request, 'index.html', { 'posts' : posts})
