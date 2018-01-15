@@ -19,7 +19,7 @@ def index(request):
 
     posts = []
 
-    for submission in reddit.subreddit('soccer+nba+nfl').hot():
+    for submission in reddit.subreddit('soccer+nba+nfl').hot(limit=150):
         # pdb.set_trace()
         if submission.media is not None:
             if submission.domain == 'streamable.com':
