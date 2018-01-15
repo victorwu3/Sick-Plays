@@ -18,10 +18,14 @@ def index(request):
 
 
     posts = []
-    for submission in reddit.subreddit('nba').hot():
-        if submission.domain == 'streamable.com':
-            if submission.media is not None:
+
+    for submission in reddit.subreddit('soccer+nba+nfl').hot():
+        # pdb.set_trace()
+        if submission.media is not None:
+            if submission.domain == 'streamable.com':
                 posts.append([submission.url[:23] + 't/' + submission.url[23:], submission.title])
+            if submission.domain == 'clippituser.tv':
+                posts.append([submission.url[:29] + 'embed_iframe/' + submission.url[29:], submission.title])
     # pdb.set_trace()
     return render(request, 'index.html', { 'posts' : posts})
 
