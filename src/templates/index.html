@@ -6,9 +6,25 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="container">
+      <div class="page-header">
+        <h1>Sick Plays</h1>
+        <h2>{ me }</h2>
+        {% if user.is_authenticated %}
+        <a href="/logout">Logout</a>
+        {% else %}
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+        {% endif %}
+      </div>
+      <div class="jumbotron">
+        <p>A feed of user-uploaded photos and videos of sick sports plays.</p>
+      </div>
+    </div>
+    {% for post in posts %}
+      {{ post }}
+    {% endfor %}
     {% if user.is_authenticated %}
-    <p>hello</p>
-    <p>welcome {{ user.username }}</p>
     <p><a href="/logout">Logout</a></p>
     {% else %}
     <p><a href="/login">Login</a></p>

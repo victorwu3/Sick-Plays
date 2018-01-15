@@ -5,11 +5,31 @@ from django.http import HttpResponseRedirect
 from django import forms
 from django.shortcuts import redirect
 from .forms import UserRegistrationForm
+import praw
+import pdb
 
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.html', {})
+    reddit = praw.Reddit(client_id='O0r4WVJ1VWL7TA',
+                     client_secret='8oVSvH15EVK-2hQ5T5ljDcghXKI',
+                     refresh_token='49102260-Bpjg-Kx0yljN_qZSGKlzRR-6RHo',
+                     user_agent='sickplays')
+
+
+    # print(reddit.auth.scopes())
+    posts = []
+    for submission in reddit.subreddit('nba').hot():
+        # pdb.set_trace()
+        if submission.domain == 'streamable.com':
+            # pdb.set_trace()
+            if submission.media is not None:
+                pdb.set_trace()
+                posts.append(submission.media['oembed']['html'])
+    # pdb.set_trace()
+
+
+    return render(request, 'index.html', { 'posts' : posts})
 
 def register(request):
     if request.user.is_authenticated:
