@@ -21,10 +21,8 @@ def index(request):
     for submission in reddit.subreddit('nba').hot():
         if submission.domain == 'streamable.com':
             if submission.media is not None:
-                # pdb.set_trace()
-                posts.append(submission.url[:23] + 't/' + submission.url[23:])
-
-
+                posts.append([submission.url[:23] + 't/' + submission.url[23:], submission.title])
+    # pdb.set_trace()
     return render(request, 'index.html', { 'posts' : posts})
 
 def register(request):
