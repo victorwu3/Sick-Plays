@@ -25,7 +25,7 @@ SECRET_KEY = '=$x82xo#us6t#c*i!7*at%g5car^9#kn%+6v!6*i0q!)0ra28a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [‘0.0.0.0’, ‘localhost’, 'sickplays.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'sickplays.herokuapp.com']
 
 
 # Application definition
