@@ -126,6 +126,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'djreact/static'),
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'djreact/static'),
+# ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'djreact/static')
