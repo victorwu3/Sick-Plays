@@ -1,1 +1,1 @@
-web: gunicorn sickplays.wsgi --log-file -
+web: gunicorn sickplays.wsgi
